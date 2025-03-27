@@ -1,0 +1,526 @@
+{
+    "golden_chestplate": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "X X",
+            "XXX",
+            "XXX"
+        ],
+        "key": {
+            "X": {
+                "item": "minecraft:gold_ingot"
+            }
+        },
+        "result": {
+            "item": "minecraft:golden_chestplate"
+        }
+    },
+    "iron_ingot": {
+        "type": "minecraft:smelting",
+        "ingredient": {
+            "item": "minecraft:iron_ore"
+        },
+        "result": "minecraft:iron_ingot",
+        "experience": 0.7,
+        "cookingtime": 200
+    },
+    "iron_shovel": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "X",
+            "#",
+            "#"
+        ],
+        "key": {
+            "#": {
+                "item": "minecraft:stick"
+            },
+            "X": {
+                "item": "minecraft:iron_ingot"
+            }
+        },
+        "result": {
+            "item": "minecraft:iron_shovel"
+        }
+    },
+    "leather_leggings": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "XXX",
+            "X X",
+            "X X"
+        ],
+        "key": {
+            "X": {
+                "item": "minecraft:leather"
+            }
+        },
+        "result": {
+            "item": "minecraft:leather_leggings"
+        }
+    },
+    "diamond_chestplate": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "X X",
+            "XXX",
+            "XXX"
+        ],
+        "key": {
+            "X": {
+                "item": "minecraft:diamond"
+            }
+        },
+        "result": {
+            "item": "minecraft:diamond_chestplate"
+        }
+    },
+    "golden_shovel": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "X",
+            "#",
+            "#"
+        ],
+        "key": {
+            "#": {
+                "item": "minecraft:stick"
+            },
+            "X": {
+                "item": "minecraft:gold_ingot"
+            }
+        },
+        "result": {
+            "item": "minecraft:golden_shovel"
+        }
+    },
+    "diamond_leggings": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "XXX",
+            "X X",
+            "X X"
+        ],
+        "key": {
+            "X": {
+                "item": "minecraft:diamond"
+            }
+        },
+        "result": {
+            "item": "minecraft:diamond_leggings"
+        }
+    },
+    "diamond_boots": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "X X",
+            "X X"
+        ],
+        "key": {
+            "X": {
+                "item": "minecraft:diamond"
+            }
+        },
+        "result": {
+            "item": "minecraft:diamond_boots"
+        }
+    },
+    "diamond_shovel": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "X",
+            "#",
+            "#"
+        ],
+        "key": {
+            "#": {
+                "item": "minecraft:stick"
+            },
+            "X": {
+                "item": "minecraft:diamond"
+            }
+        },
+        "result": {
+            "item": "minecraft:diamond_shovel"
+        }
+    },
+    "golden_sword": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "X",
+            "X",
+            "#"
+        ],
+        "key": {
+            "#": {
+                "item": "minecraft:stick"
+            },
+            "X": {
+                "item": "minecraft:gold_ingot"
+            }
+        },
+        "result": {
+            "item": "minecraft:golden_sword"
+        }
+    },
+    "iron_helmet": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "XXX",
+            "X X"
+        ],
+        "key": {
+            "X": {
+                "item": "minecraft:iron_ingot"
+            }
+        },
+        "result": {
+            "item": "minecraft:iron_helmet"
+        }
+    },
+    "golden_axe": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "XX",
+            "X#",
+            " #"
+        ],
+        "key": {
+            "#": {
+                "item": "minecraft:stick"
+            },
+            "X": {
+                "item": "minecraft:gold_ingot"
+            }
+        },
+        "result": {
+            "item": "minecraft:golden_axe"
+        }
+    },
+    "iron_chestplate": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "X X",
+            "XXX",
+            "XXX"
+        ],
+        "key": {
+            "X": {
+                "item": "minecraft:iron_ingot"
+            }
+        },
+        "result": {
+            "item": "minecraft:iron_chestplate"
+        }
+    },
+    "iron_pickaxe": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "XXX",
+            " # ",
+            " # "
+        ],
+        "key": {
+            "#": {
+                "item": "minecraft:stick"
+            },
+            "X": {
+                "item": "minecraft:iron_ingot"
+            }
+        },
+        "result": {
+            "item": "minecraft:iron_pickaxe"
+        }
+    },
+    "diamond_pickaxe": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "XXX",
+            " # ",
+            " # "
+        ],
+        "key": {
+            "#": {
+                "item": "minecraft:stick"
+            },
+            "X": {
+                "item": "minecraft:diamond"
+            }
+        },
+        "result": {
+            "item": "minecraft:diamond_pickaxe"
+        }
+    },
+    "iron_sword": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "X",
+            "X",
+            "#"
+        ],
+        "key": {
+            "#": {
+                "item": "minecraft:stick"
+            },
+            "X": {
+                "item": "minecraft:iron_ingot"
+            }
+        },
+        "result": {
+            "item": "minecraft:iron_sword"
+        }
+    },
+    "diamond_sword": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "X",
+            "X",
+            "#"
+        ],
+        "key": {
+            "#": {
+                "item": "minecraft:stick"
+            },
+            "X": {
+                "item": "minecraft:diamond"
+            }
+        },
+        "result": {
+            "item": "minecraft:diamond_sword"
+        }
+    },
+    "golden_helmet": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "XXX",
+            "X X"
+        ],
+        "key": {
+            "X": {
+                "item": "minecraft:gold_ingot"
+            }
+        },
+        "result": {
+            "item": "minecraft:golden_helmet"
+        }
+    },
+    "iron_boots": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "X X",
+            "X X"
+        ],
+        "key": {
+            "X": {
+                "item": "minecraft:iron_ingot"
+            }
+        },
+        "result": {
+            "item": "minecraft:iron_boots"
+        }
+    },
+    "iron_axe": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "XX",
+            "X#",
+            " #"
+        ],
+        "key": {
+            "#": {
+                "item": "minecraft:stick"
+            },
+            "X": {
+                "item": "minecraft:iron_ingot"
+            }
+        },
+        "result": {
+            "item": "minecraft:iron_axe"
+        }
+    },
+    "diamond_helmet": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "XXX",
+            "X X"
+        ],
+        "key": {
+            "X": {
+                "item": "minecraft:diamond"
+            }
+        },
+        "result": {
+            "item": "minecraft:diamond_helmet"
+        }
+    },
+    "iron_leggings": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "XXX",
+            "X X",
+            "X X"
+        ],
+        "key": {
+            "X": {
+                "item": "minecraft:iron_ingot"
+            }
+        },
+        "result": {
+            "item": "minecraft:iron_leggings"
+        }
+    },
+    "golden_pickaxe": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "XXX",
+            " # ",
+            " # "
+        ],
+        "key": {
+            "#": {
+                "item": "minecraft:stick"
+            },
+            "X": {
+                "item": "minecraft:gold_ingot"
+            }
+        },
+        "result": {
+            "item": "minecraft:golden_pickaxe"
+        }
+    },
+    "leather_boots": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "X X",
+            "X X"
+        ],
+        "key": {
+            "X": {
+                "item": "minecraft:leather"
+            }
+        },
+        "result": {
+            "item": "minecraft:leather_boots"
+        }
+    },
+    "diamond_axe": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "XX",
+            "X#",
+            " #"
+        ],
+        "key": {
+            "#": {
+                "item": "minecraft:stick"
+            },
+            "X": {
+                "item": "minecraft:diamond"
+            }
+        },
+        "result": {
+            "item": "minecraft:diamond_axe"
+        }
+    },
+    "stone": {
+        "type": "minecraft:smelting",
+        "ingredient": {
+            "item": "minecraft:cobblestone"
+        },
+        "result": "minecraft:stone",
+        "experience": 0.1,
+        "cookingtime": 200
+    },
+    "golden_leggings": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "XXX",
+            "X X",
+            "X X"
+        ],
+        "key": {
+            "X": {
+                "item": "minecraft:gold_ingot"
+            }
+        },
+        "result": {
+            "item": "minecraft:golden_leggings"
+        }
+    },
+    "golden_boots": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "X X",
+            "X X"
+        ],
+        "key": {
+            "X": {
+                "item": "minecraft:gold_ingot"
+            }
+        },
+        "result": {
+            "item": "minecraft:golden_boots"
+        }
+    },
+    "leather_helmet": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "XXX",
+            "X X"
+        ],
+        "key": {
+            "X": {
+                "item": "minecraft:leather"
+            }
+        },
+        "result": {
+            "item": "minecraft:leather_helmet"
+        }
+    },
+    "leather_chestplate": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "X X",
+            "XXX",
+            "XXX"
+        ],
+        "key": {
+            "X": {
+                "item": "minecraft:leather"
+            }
+        },
+        "result": {
+            "item": "minecraft:leather_chestplate"
+        }
+    },
+    "crafting_table": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+            "XX",
+            "XX"
+        ],
+        "key": {
+            "X": {
+            "tag": "minecraft:planks"
+            }
+        },
+        "result": {
+            "item": "minecraft:crafting_table"
+        }},
+        "furnace": {
+            "type": "minecraft:crafting_shaped",
+            "pattern": [
+                "###",
+                "# #",
+                "###"
+            ],
+            "key": {
+                "#": { "item": "minecraft:cobblestone" }
+            },
+            "result": {
+                "item": "minecraft:furnace"
+            }
+            }
+
+
+}
