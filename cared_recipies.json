@@ -492,7 +492,20 @@
         "result": {
             "item": "minecraft:leather_chestplate"
         }
-    },
+    }, "furnace": {
+            "type": "minecraft:crafting_shaped",
+            "pattern": [
+                "###",
+                "# #",
+                "###"
+            ],
+            "key": {
+                "#": { "item": "minecraft:cobblestone" }
+            },
+            "result": {
+                "item": "minecraft:furnace"
+            }
+        },
     "crafting_table": {
         "type": "minecraft:crafting_shaped",
         "pattern": [
@@ -507,20 +520,37 @@
         "result": {
             "item": "minecraft:crafting_table"
         }},
-        "furnace": {
+       
+        "planks": {
+            "type": "minecraft:crafting_shapeless",
+            "ingredients": [
+                { "tag": "minecraft:logs" }
+            ],
+            "result": {
+                "item": "minecraft:planks",
+                "count": 4
+            }
+            },
+        "stick": {
             "type": "minecraft:crafting_shaped",
             "pattern": [
-                "###",
-                "# #",
-                "###"
+                "#",
+                "#"
             ],
             "key": {
-                "#": { "item": "minecraft:cobblestone" }
+                "#": {
+                "tag": "minecraft:planks"
+                }
             },
             "result": {
-                "item": "minecraft:furnace"
+                "item": "minecraft:stick",
+                "count": 4
             }
-            }
+}
+
+
+
+
 
 
 }

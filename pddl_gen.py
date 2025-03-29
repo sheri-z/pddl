@@ -26,13 +26,11 @@ def get_result_count(recipe):
 recipes = {normalize(k): v for k, v in recipes_raw.items() if get_result_item(v)}
 
 tag_map = {
-    "minecraft:planks": [
-        "minecraft:oak_planks", "minecraft:birch_planks", "minecraft:spruce_planks",
-        "minecraft:jungle_planks", "minecraft:dark_oak_planks", "minecraft:acacia_planks"
-    ]
+    "minecraft:planks": ["minecraft:planks"],
+    "minecraft:logs": ["minecraft:logs"]
 }
 
-# === 合成路径提取（精细级别） ===
+# === 合成路径提取 ===
 def extract_primitive_steps(target, recipes):
     queue = deque()
     steps = []
@@ -41,7 +39,11 @@ def extract_primitive_steps(target, recipes):
 
     while queue:
         current, qty = queue.popleft()
+
+        if visited[current] > 0:
+            continue
         visited[current] += qty
+
         recipe = recipes.get(current)
         if not recipe:
             for _ in range(qty):
@@ -67,21 +69,23 @@ def extract_primitive_steps(target, recipes):
                         ing_counter[item] += 1
             for ing, count in ing_counter.items():
                 ing_list.append((ing, qty * count))
-            if current != "minecraft:crafting_table":
+            if current != "minecraft:crafting_table" and current != "minecraft:planks":
                 ing_list.append(("minecraft:crafting_table", 1))
         elif recipe["type"] == "minecraft:crafting_shapeless":
             for ing in recipe.get("ingredients", []):
                 item = normalize(ing.get("item") or tag_map.get(ing.get("tag"), ["minecraft:dirt"])[0])
                 ing_list.append((item, qty))
-            if current != "minecraft:crafting_table":
+            if current != "minecraft:crafting_table" and current != "minecraft:planks":
                 ing_list.append(("minecraft:crafting_table", 1))
 
         for ing, need_qty in ing_list:
             queue.append((ing, need_qty))
-        for _ in range(qty):
-            steps.append(("make", current))
 
-    return steps[::-1]  # 顺序调整为 collect 在前
+        label = "smelt" if recipe["type"] == "minecraft:smelting" else "make"
+        for _ in range(qty):
+            steps.append((label, current))
+
+    return steps[::-1]
 
 # === domain.pddl 和 problem.pddl 生成 ===
 def write_domain_and_problem(target, steps):
@@ -94,19 +98,20 @@ def write_domain_and_problem(target, steps):
     for o in obj_map.values():
         problem.add_object(o)
 
-    # 只为没有配方的物品定义 collect
     for i in all_items:
-        if i not in recipes:
+        if i not in recipes and not i.endswith(":planks"):
             action = InstantaneousAction(f"collect__{i.replace('minecraft:', '')}")
             itm = obj_map[i]
             action.add_increase_effect(count(itm), 1)
             problem.add_action(action)
 
+
     for name, recipe in recipes.items():
         if name not in all_items:
             continue
         result = obj_map[name]
-        action = InstantaneousAction(f"make__{name.replace('minecraft:', '')}")
+        label = "smelt" if recipe["type"] == "minecraft:smelting" else "make"
+        action = InstantaneousAction(f"{label}__{name.replace('minecraft:', '')}")
         if recipe["type"] == "minecraft:smelting":
             ing = normalize(recipe["ingredient"].get("item") or tag_map.get(recipe["ingredient"].get("tag"), ["minecraft:dirt"])[0])
             ing_obj = obj_map[ing]
@@ -137,7 +142,7 @@ def write_domain_and_problem(target, steps):
                 action.add_precondition(GE(count(ing_obj), qty))
                 action.add_decrease_effect(count(ing_obj), qty)
             action.add_increase_effect(count(result), get_result_count(recipe))
-            if name != "minecraft:crafting_table":
+            if name != "minecraft:crafting_table" and name != "minecraft:planks":
                 table = obj_map.get("minecraft:crafting_table")
                 if table:
                     action.add_precondition(GE(count(table), 1))
@@ -155,7 +160,6 @@ def write_domain_and_problem(target, steps):
     writer.write_problem(f"problem_{target.replace('minecraft:', '')}.pddl")
     print("domain.pddl, problem generated")
 
-    # === 自动调用 ENHSP 获取 plan ===
     try:
         result = subprocess.run([
             "java", "-jar", "enhsp.jar", "-o", "domain.pddl", "-f", f"problem_{target.replace('minecraft:', '')}.pddl"
@@ -176,11 +180,9 @@ def write_domain_and_problem(target, steps):
     except Exception as e:
         print(" ENHSP failed:", e)
 
-# === CLI 入口 ===
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("target", type=str)
     args = parser.parse_args()
     plan_steps = extract_primitive_steps(args.target, recipes)
-
     write_domain_and_problem(args.target, plan_steps)
